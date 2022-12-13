@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  telegram-runner:
+    container_name: telegram-runner
+    build:
+      context: .
+    image: telegram-runner:latest
+    restart: always
+    env_file:
+      - .env
+    networks:
+      - runner-telegram
+    ports:
+      - 8991:8991
+
+networks:
+  runner-telegram:
+    external: true
